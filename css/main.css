@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+:root {
+    --colorPrimary: hsla(225, 100%, 50%, 1);
+    --fontColorWhite: #f0ffff;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+body, header, main, .main-weather, main .more-info h5, .weather-informations, footer {
+    width: 100%;
+}
+header {
+    background-color: var(--fontColorWhite);
+    padding: 15px;
+    
+}
+header h1 {
+    color: var(--colorPrimary);
+}
+header h5 {
+    color: rgba(0, 0, 0, 0.5);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    color: rgba(200, 200, 200);
+    font-weight: 400;
+    padding: 5px 0px;
+    overflow: hidden;
+}
+main, .banner-img, .box-informations, footer {
+    text-align: center;
+}
+.banner-img, .main-weather, .weather, .wind, .temperature-info, .box-informations, .nav-options ul {
+    align-items: center;
+}
+.banner-img {
+    display: flex;
+    flex-direction: column;
+}
+.banner-img a {
+    color:rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+}
+.banner-img img{
+    width: 80%;
+}
+.main-weather, .weather, .wind {
+    display: flex;
+    flex-direction: column;
+}
+
+.temperature-info, .nav-options ul, footer ul, .weather-box {
+    display: flex;
+    flex-direction: row;
+}
+main .more-info h5, .main-weather h2, .box-informations, .box-informations h6:first-of-type, .nav-options ul, .weather-box h6:first-of-type, header h1 {
+    font-weight: 600;
+}
+.nav-options ul, footer ul {
+    justify-content: space-around;
+} 
+.main-weather, footer li, a, p{
+    color: var(--fontColorWhite);
+}
+.main-weather {
+    height: 300px;
+    padding: 15px;
+    background: var(--colorPrimary);
+    background: linear-gradient(90deg, var(--colorPrimary) 0%, hsla(199, 75%, 69%, 1) 100%);
+    border-radius: 0px 0px 30px 30px;
+    font-weight: 300;
+}
+.main-weather h2 {
+    font-size: 3rem;
+}
+.btn-location, .nav-options ul {
+    cursor: pointer;
+}
+.btn-location {
+    margin: 0 auto;
+    width: 60%;
+    height: 70px;
+    padding: 5px;
+    background: var(--fontColorWhite);
+    color: var(--colorPrimary);
+    border: none;
+    border-radius: 5px;
+}
+.btn-location:hover {
+    color:var(--fontColorWhite);
+    background: transparent;
+    border: 1px solid var(--fontColorWhite);
+}
+main .more-info {
+    padding: 15px;
+}
+main .more-info h5 {
+    text-align: left;
+    color:rgba(0, 0, 0, 1);
+}
+main .more-info .temperature-info {
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 1);
+    padding: 10px;
+}
+.temperature-info .box-informations {
+    padding: 15px;
+    background: rgba(177, 204, 235, 0.418);
+    border-radius: 10px;
+    height: 95px;
+    width: 45%;
+}
+.nav-options ul{
+    color: rgba(0, 0, 0, 0.6);
+}
+.nav-options ul li{
+    width: 60px;
+    position:relative;
+    transition: 0.5s ease-in-out;
+}
+.nav-options ul li:hover{
+    color: var(--colorPrimary);
+    border-bottom: 2px solid var(--colorPrimary);
+}
+.weather-box, main .more-info h5 {
+    text-align: left;
+}
+.weather-box {
+    color: rgba(0, 0, 0, 1);
+    padding: 10px;
+    border: 1px solid rgba(149, 169, 192, 0.5);
+    border-radius: 10px;
+    margin: 10px;
+    width: 50%;
+}
+.weather-box div {
+    margin-left: 15px;
+}
+.weather-box i {
+    color: var(--colorPrimary);
+    font-size: 2rem;
+}
+.slide-right {
+	-webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@-webkit-keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(5px);
+              transform: translateX(5px);
+    }
+  }
+@keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+    }
+    100% {
+      -webkit-transform: translateX(5px);
+              transform: translateX(5px);
+    }
+}
+footer {
+    padding: 15px;
+    background-color: var(--colorPrimary);
+}
+footer a {
+    text-decoration: none;
+}
+
+footer ul li a i {
+    font-size: 1.5rem;
+}
+
+footer ul li a:hover {
+    color: hsla(199, 75%, 69%, 1);
+}
+@media screen and (max-width: 768px) {
+    .weather-box {
+        width: 90%;
+    }
+}
+@media screen and (min-width: 769px){
+    .weather, .wind {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .weather-box {
+        width: 25%;
+    }
+    .banner-img img{
+        width: 50%;
+    }
+}
