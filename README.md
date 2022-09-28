@@ -17,7 +17,7 @@ Uma aplicação web de clima
 
 O Rethaew App é uma aplicação web que fornece dados metereológicos em tempo real.
 
-### Funcionalidades
+### ⚙️ Funcionalidades
 
 Os usuários devem estar aptos a:
 
@@ -35,14 +35,14 @@ Os usuários devem estar aptos a:
    - Direção do vento
    - Rajada de vento em m/seg
 
-### Screenshot
+### 📸 Screenshot
 
 ![Desktop Design](desktop-index.jpeg)
 ![Desktop Design](desktop-weather.jpeg)
 
 ## Meu processo
 
-### Tecnologias
+### 🛠️ Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -52,13 +52,13 @@ Além disso, também utilizei:
 - Flexbox
 - Mobile-first workflow
 
-### Ferramentas utilizadas
+### 🛠️ Ferramentas utilizadas
 
 - Bootstrap Icons
 - Google Fonts
 - Ilustração do Freepik, feito por slidesgo.
 
-### APIs
+### 💻 APIs
 <br/>
 As APIs utilizadas nesse projeto:
 
@@ -66,18 +66,18 @@ As APIs utilizadas nesse projeto:
 - [OpenWeather](https://openweathermap.org/)
 
 
-## Aprendizado
+## 📚 Aprendizado
 
 
 Texto
 
-## Autor
+## 👩🏽‍💻 Autor
 
  <br />
    <h3>Feito por Maria Eduarda Cruz, Desenvolvedora Front-End</h3>
  <br />
 
-### Redes Sociais
+### 📲 Redes Sociais
 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/mariamourie) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/maria-eduarda-cruz) 
 
