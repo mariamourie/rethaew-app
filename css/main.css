@@ -10,6 +10,7 @@
     font-family: 'Poppins', sans-serif;
     list-style: none;
     text-decoration: none;
+    border: none;
 }
 body, header, main, .main-weather, main .more-info h5, .weather-informations, footer {
     width: 100%;
@@ -42,6 +43,11 @@ main, .banner-img, .box-informations, footer {
 .banner-img {
     display: flex;
     flex-direction: column;
+    text-align: center;
+    padding: 15px;
+}
+.banner-img p {
+    color:rgba(0, 0, 0, 0.8);
 }
 .banner-img a {
     color:rgba(0, 0, 0, 0.3);
@@ -76,6 +82,9 @@ main .more-info h5, .main-weather h2, .box-informations, .box-informations h6:fi
     border-radius: 0px 0px 30px 30px;
     font-weight: 300;
 }
+.btn-location + p {
+    margin: 1rem 0;
+}
 .main-weather h2 {
     font-size: 3rem;
 }
@@ -84,12 +93,12 @@ main .more-info h5, .main-weather h2, .box-informations, .box-informations h6:fi
 }
 .btn-location {
     margin: 0 auto;
-    width: 60%;
-    height: 70px;
+    width: 70%;
+    height: 15vh;
     padding: 5px;
     background: var(--fontColorWhite);
     color: var(--colorPrimary);
-    border: none;
+    margin: 1rem 0;
     border-radius: 5px;
 }
 .btn-location:hover {
@@ -111,7 +120,7 @@ main .more-info .temperature-info {
 }
 .temperature-info .box-informations {
     padding: 15px;
-    background: rgba(177, 204, 235, 0.418);
+    background: rgba(149, 169, 192, 0.253);
     border-radius: 10px;
     height: 95px;
     width: 45%;
@@ -191,6 +200,10 @@ footer ul li a:hover {
     }
 }
 @media screen and (min-width: 769px){
+    .btn-location {
+        width: 20%;
+        height: 10vh;
+    }
     .weather, .wind {
         display: flex;
         flex-direction: row;

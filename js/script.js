@@ -6,34 +6,30 @@ const btnWind = document.querySelector('.btn-wind');
 
 $(document).ready(function (){
     document.querySelector('.date').innerHTML = getInfoDay();
-    $('.wind').hide();
-    $('.more-info').hide();
-    $('.weather-informations').hide();
+    $('.wind, .more-info, .weather-informations').hide();
 
 });
-
-btnLocation.addEventListener('click', function(){
+$(btnLocation).click(() => {
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(getPosition);
     } else {
         alert('Não foi possível carregar temperatura');
     }
 });
-
-btnWeather.addEventListener('click', () => {
+$('.btn-weather').click(() => {
     $('.weather').show();
-    $('.wind').hide();
+    $('.wind').hide();  
 });
 
-btnWind.addEventListener('click', () => {
+$('.btn-wind').click(() => {
     $('.wind').show();
     $('.weather').hide();
-});
+}); 
 
 function getPosition(position){
-    $('.btn-location').hide();
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
+    $('.btn-location, .btn-location + p').hide();
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
     const request = async (url) => {
         const response = await fetch(url);
         return response.ok ? response.json() : Promise.reject({error: 500});
@@ -43,13 +39,11 @@ function getPosition(position){
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=5fbd511b448f5728a538d1bf60c3e630&units=metric&lang=pt_br`;
             const response = await request(url);
             const infoWeather = JSON.stringify(response);
-            localStorage.setItem('testJSON', infoWeather);
-            setWeatherInfo(localStorage.getItem('testJSON'));
+            setWeatherInfo(infoWeather);
             $('.banner-img').hide();
-            $('.weather-informations').show();
-            $('.more-info').show();
+            $('.weather-informations, .more-info').show();
         } catch(err) {
-            console.log(err);
+            $('.banner-img').empty().append('Erro: ', erro);
         }
     };
     getWeatherInfo();
@@ -57,18 +51,18 @@ function getPosition(position){
 
 function setWeatherInfo(text){
     const obj = JSON.parse(text);
-    document.querySelector('.location').innerHTML += `${obj.name}, ${obj.sys.country}`;
-    document.querySelector('.temperature').innerHTML = `${obj.main.temp}°C`;
-    document.querySelector('.humidity').innerHTML = `${obj.main.humidity}%`;
-    document.querySelector('.feels-like-temperature').innerHTML = `Sensação térmica de ${obj.main.feels_like} °C`;
-    document.querySelector('.cloud').innerHTML = `${obj.clouds.all}%`;
-    document.querySelector('.visibility').innerHTML = `${obj.visibility} km`;
-    document.querySelector('.max-temperature').innerHTML = `${obj.main.temp_max} °C`;
-    document.querySelector('.min-temperature').innerHTML = `${obj.main.temp_min} °C`;
-    document.querySelector('.wind-speed').innerHTML = `${obj.wind.speed} m/seg`;
-    document.querySelector('.wind-degree').innerHTML = `${obj.wind.deg}°`;
-    document.querySelector('.wind-gust').innerHTML = `${obj.wind.gust} m/seg`;
-    document.querySelector('.main-description').innerHTML = `${formatDescription(obj.weather[0].description)}`;
+    $('.location').append(`${obj.name}, ${obj.sys.country}`);
+    $('.temperature').append(`${obj.main.temp}°C`);
+    $('.humidity').append(`${obj.main.humidity}%`);
+    $('.feels-like-temperature').append(`Sensação térmica de ${obj.main.feels_like} °C`);
+    $('.cloud').text(`${obj.clouds.all}%`);
+    $('.visibility').append(`${obj.visibility} km`);
+    $('.max-temperature').append(`${obj.main.temp_max} °C`);
+    $('.min-temperature').append(`${obj.main.temp_min} °C`);
+    $('.wind-speed').append(`${obj.wind.speed} m/seg`);
+    $('.wind-degree').append(`${obj.wind.deg}°`);
+    $('.wind-gust').append(`${obj.wind.gust} m/seg`);
+    $('.main-description').append(`${formatDescription(obj.weather[0].description)}`);
     document.querySelector('.icon-weather').setAttribute(`src`, `http://openweathermap.org/img/w/${obj.weather[0].icon}.png`);
     $('icon-weather').show();
 }
@@ -82,49 +76,49 @@ function getInfoDay(){
     const week = getDayOfWeek(date.getDay());
     const month = getMonth(date.getMonth());
     if (date.getMinutes() < 10){
-        return `${week}, ${date.getDate()} de ${month}, ${date.getHours()}:0${date.getMinutes()}.`;
+        return `${week}, ${date.getDate()} de ${month} de ${date.getFullYear()} | ${date.getHours()}:0${date.getMinutes()}.`;
     } else {
-        return `${week}, ${date.getDate()} de ${month}, ${date.getHours()}:${date.getMinutes()}.`;
+        return `${week}, ${date.getDate()} de ${month} de ${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}.`;
     }
 }
 
 function getMonth(month){
     switch(month){
         case 0:{
-            return 'janeiro';
+            return 'jan.';
         }
         case 1:{
-            return 'ferreiro';
+            return 'fev.';
         }
         case 2:{
-            return 'março';
+            return 'mar.';
         }
         case 3:{
-            return 'abril';
+            return 'abr.';
         }
         case 4:{
-            return 'maio';
+            return 'mai.';
         }
         case 5:{
-            return 'junho';
+            return 'jun.';
         }
         case 6:{
-            return 'julho';
+            return 'jul.';
         }
         case 7:{
-            return 'agosto';
+            return 'ago.';
         }
         case 8:{
-            return 'setembro';
+            return 'set.';
         }
         case 9:{
-            return 'outubro';
+            return 'out.';
         }
         case 10:{
-            return 'novembro';
+            return 'nov.';
         }
         case 11:{
-            return 'dezembro';
+            return 'dez.';
         }
     }
 }
