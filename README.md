@@ -1,6 +1,8 @@
-# 🌞 Rethaew App
+# 🌥️ Rethaew App
 
 Uma aplicação web de clima
+
+🖇️ [Acesse o site](https://mariamourie.github.io/rethaew-app/)
 
 ## Tabela de conteúdos
 
