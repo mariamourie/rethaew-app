@@ -5,6 +5,7 @@ const btnWeather = document.querySelector('.btn-weather');
 const btnWind = document.querySelector('.btn-wind');
 
 $(document).ready(function (){
+
     document.querySelector('.date').innerHTML = getInfoDay();
     $('.wind, .more-info, .weather-informations, .icon-weather').hide();
 
@@ -42,7 +43,8 @@ $(document).ready(function (){
                 $('.banner-img').hide();
                 $('.weather-informations, .more-info').show();
             } catch(err) {
-                $('.banner-img').empty().append('Erro: ', erro);
+                $('.main-weather, footer').hide();
+                $('.banner-img').empty().append(err);
             }
         };
         getWeatherInfo();
@@ -60,7 +62,6 @@ $(document).ready(function (){
         $('.min-temperature').append(`${obj.main.temp_min} °C`);
         $('.wind-speed').append(`${obj.wind.speed} m/seg`);
         $('.wind-degree').append(`${obj.wind.deg}°`);
-        $('.wind-gust').append(`${obj.wind.gust} m/seg`);
         $('.main-description').append(`${formatDescription(obj.weather[0].description)}`);
         document.querySelector('.icon-weather').setAttribute(`src`, `http://openweathermap.org/img/w/${obj.weather[0].icon}.png`);
         $('.icon-weather').show();
@@ -147,4 +148,5 @@ $(document).ready(function (){
             }
         }
     }
+    
 });
